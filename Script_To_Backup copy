@@ -1,0 +1,3 @@
+Use master
+Go
+Backup database [AdventureWorks2016] to Disk = N'\\Sql01\mssql\AdventureWorks2016Full.bak' with Compression, stats = 5;
