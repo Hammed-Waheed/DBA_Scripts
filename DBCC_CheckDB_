@@ -1,0 +1,37 @@
+-- DBCC CHECK DATABASE => Use to check database Integrity
+--------------------------------------------------------------------------------------------------------------------------
+-- Database Console Command (DBCC) CHECKDB is used to identify errors in the SQL Server database.
+
+DBCC CheckDB (AdventureWorks2016)
+
+
+-- CHECKDB found 0 allocation errors and 0 consistency errors in database 'AdventureWorks2016'.
+-- DBCC execution completed. If DBCC printed error messages, contact your system administrator.
+
+
+-- Step 1 - Execute this Query 1
+ALTER DATABASE [DBName] SET EMERGENCY;
+GO
+
+-- Step 2 - Execute this Query 2
+ALTER DATABASE [DBName] set single_user
+GO
+
+-- Step 3 - Execute this Query 3
+DBCC CHECKDB ([DBName], REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
+GO
+
+-- Step 4 - Execute this Query 4
+ALTER DATABASE [DBName] set multi_user
+GO 
+
+
+
+ALTER DATABASE [AdventureWorks2016] SET EMERGENCY;
+GO
+ALTER DATABASE [AdventureWorks2016] set single_user
+GO
+DBCC CHECKDB ([AdventureWorks2016], REPAIR_ALLOW_DATA_LOSS) WITH ALL_ERRORMSGS;
+GO
+ALTER DATABASE [AdventureWorks2016] set multi_user
+GO 
